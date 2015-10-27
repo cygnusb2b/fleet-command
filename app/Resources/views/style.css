@@ -43,6 +43,31 @@ body {
     opacity: 1;
 }
 
+.task-body {
+    width: calc(100% - 50px);
+    float: left;
+    padding-left: 20px;
+}
+
+.task-check {
+    width: 50px;
+    height: 60px;
+    float: left;
+    text-align: center;
+}
+
+.task-check i {
+    font-size: 30px;
+    margin: 22px auto 8px auto;
+}
+
+a.task-remove {
+    float: right;
+}
+
+
+
+
 @media (min-width: 768px) {
     #wrapper { width: 80%; margin: 2em auto; }
     #icon-book { display: inline-block; }

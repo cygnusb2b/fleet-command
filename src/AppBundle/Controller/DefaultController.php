@@ -8,15 +8,71 @@ use Symfony\Component\HttpFoundation\Request;
 
 class DefaultController extends Controller
 {
+
+    protected $defaultTasks = [
+        ['name' => 'Create Fleet Commander', 'description' => 'Create the demo application', 'complete' => true],
+        ['name' => 'Create mission log', 'description' => 'Create the mission log interface', 'complete' => false]
+    ];
+
     /**
      * @Route("/", name="homepage")
      */
     public function indexAction(Request $request)
     {
-        // replace this example code with whatever you need
-        return $this->render('default/index.html.twig', array(
-            'base_dir' => realpath($this->container->getParameter('kernel.root_dir').'/..'),
-        ));
+        $session = $request->getSession();
+        if ($this->isGranted('ROLE_USER')) {
+            return $this->render('default/todo.html.twig', ['tasks' => $this->retrieveTasks($request)]);
+        }
+        return $this->render('default/index.html.twig');
+    }
+
+    protected function retrieveTasks(Request $request)
+    {
+        $session = $request->getSession();
+
+        if (null === $session->get('tasks', null)) {
+            $session->set('tasks', $this->defaultTasks);
+        }
+
+        return $session->get('tasks', []);
+    }
+
+    /**
+     * @Route("/create", name="create-task")
+     */
+    public function createTaskAction(Request $request)
+    {
+        $tasks = $this->retrieveTasks($request);
+        $tasks[] = [
+            'name'          => $request->request->get('name', 'New Mission Log'),
+            'description'   => $request->request->get('description', ''),
+            'complete'      => false
+        ];
+        $request->getSession()->set('tasks', $tasks);
+        return $this->redirectToRoute('homepage');
+    }
+
+    /**
+     * @Route("/toggle/{id}", name="toggle-task")
+     */
+    public function toggleTaskAction(Request $request, $id)
+    {
+        $tasks = $this->retrieveTasks($request);
+        $tasks[$id]['complete'] = !$tasks[$id]['complete'];
+        $request->getSession()->set('tasks', $tasks);
+        return $this->redirectToRoute('homepage');
+    }
+
+    /**
+     * @Route("/remove/{id}", name="remove-task")
+     */
+    public function removeTaskAction(Request $request, $id)
+    {
+        $tasks = $this->retrieveTasks($request);
+        unset($tasks[$id]);
+        $tasks = array_values($tasks);
+        $request->getSession()->set('tasks', $tasks);
+        return $this->redirectToRoute('homepage');
     }
 
     /**
