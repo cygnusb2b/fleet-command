@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+{% block title %}Home{% endblock %}
+
+{% block body %}
+
+    <div class="jumbotron">
+        <div class="container">
+            <img src="https://s3.amazonaws.com/cygnusimages/fleet-commander/logo.png" class="pull-left">
+            <h1>Sign in</h1>
+
+            {% if error %}
+                <p class="text-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</p>
+            {% endif %}
+
+            <form style="width: 400px; float: right;" method="post" action="{{ path('login_check') }}">
+                <div class="well">
+                    <div class="form-group">
+                        <label for="username">Username:</label>
+                        <input type="text" id="username" name="_username" value="{{ last_username }}" />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password">Password:</label>
+                        <input type="password" id="password" name="_password" />
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-block btn-success">Sign In</button>
+            </form>
+        </div>
+    </div>
+
+    <hr />
+
+    <div class="row">
+        <div class="col-md-12">
+            <h3>Scenario #2</h3>
+            <p>This form fails to submit.
+        </div>
+    </div>
+
+{% endblock %}

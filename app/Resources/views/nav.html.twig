@@ -1,0 +1,22 @@
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/"><img src="https://s3.amazonaws.com/cygnusimages/fleet-commander/icon.png"> fleet command</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <p class="navbar-text navbar-right">
+
+                {% if is_granted('ROLE_USER') %}
+                <i class="fa fa-user"></i> Signed in as {{ app.user.username }}. <a href="/logout">Sign out</a>?
+                {% else %}
+                <a href="/sign-in"><i class="fa fa-user"></i>Sign in</a>
+                {% endif %}
+        </div><!--/.navbar-collapse -->
+    </div>
+</nav>
