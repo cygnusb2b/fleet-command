@@ -4,20 +4,21 @@ namespace AppBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\JsonResponse;
 
 class RestController extends Controller
 {
     protected $defaultTasks = [
-        ['name' => 'Create Fleet Commander', 'description' => 'Create the demo application', 'complete' => true],
-        ['name' => 'Create mission log', 'description' => 'Create the mission log interface', 'complete' => false]
+        ['id' => 1, 'name' => 'Create Fleet Commander', 'description' => 'Create the demo application', 'complete' => true],
+        ['id' => 2, 'name' => 'Create mission log', 'description' => 'Create the mission log interface', 'complete' => false]
     ];
 
-    public function listAction(Request $request)
+    public function listAction($type, Request $request)
     {
-
+        return new JsonResponse([$type => $this->defaultTasks], 200);
     }
 
-    public function createAction(Request $request)
+    public function createAction($type, Request $request)
     {
         $tasks = $this->retrieveTasks($request);
         $tasks[] = [
@@ -29,7 +30,7 @@ class RestController extends Controller
         return $this->redirectToRoute('homepage');
     }
 
-    public function retrieveAction($id, Request $request)
+    public function retrieveAction($type, $id, Request $request)
     {
         $session = $request->getSession();
 
@@ -40,7 +41,7 @@ class RestController extends Controller
         return $session->get('tasks', []);
     }
 
-    public function updateAction($id, Request $request, $id)
+    public function updateAction($type, $id, Request $request, $id)
     {
         $tasks = $this->retrieveTasks($request);
         $tasks[$id]['complete'] = !$tasks[$id]['complete'];
@@ -48,7 +49,7 @@ class RestController extends Controller
         return $this->redirectToRoute('homepage');
     }
 
-    public function deleteAction($id, Request $request, $id)
+    public function deleteAction($type, $id, Request $request, $id)
     {
         $tasks = $this->retrieveTasks($request);
         unset($tasks[$id]);
