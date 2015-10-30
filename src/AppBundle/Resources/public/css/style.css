@@ -43,25 +43,25 @@ body {
     opacity: 1;
 }
 
-.task-body {
+.todo-body {
     width: calc(100% - 50px);
     float: left;
     padding-left: 20px;
 }
 
-.task-check {
+.todo-check {
     width: 50px;
     height: 60px;
     float: left;
     text-align: center;
 }
 
-.task-check i {
+.todo-check i {
     font-size: 30px;
     margin: 22px auto 8px auto;
 }
 
-a.task-remove {
+a.todo-remove {
     float: right;
 }
 

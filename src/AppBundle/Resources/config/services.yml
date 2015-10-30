@@ -1,0 +1,4 @@
+services:
+   app_bundle_database:
+       class: AppBundle\Services\Database
+       arguments: [ @session ]
