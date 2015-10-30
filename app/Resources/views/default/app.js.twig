@@ -1,0 +1,16 @@
+<script>
+window.App = Ember.Application.create({
+    rootElement: '#application'
+});
+
+App.Router.map(function () {
+  this.resource('list', { path: '/' });
+});
+
+App.ListRoute = Ember.Route.extend({
+    model: function() {
+        console.info('MODEL');
+    }
+});
+
+</script>

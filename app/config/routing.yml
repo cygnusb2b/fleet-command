@@ -1,5 +1,42 @@
-app:
-    resource: "@AppBundle/Controller/"
-    type:     annotation
-logout:
+app_default_index:
+    path: /
+    defaults: { _controller: AppBundle:Default:index }
+
+
+app_rest_create:
+    path: /api
+    methods: [ POST ]
+    defaults: { _controller: AppBundle:Rest:create }
+
+app_rest_retrieve:
+    path: /api/{id}
+    methods: [ GET ]
+    defaults: { _controller: AppBundle:Rest:retrieve }
+
+app_rest_update:
+    path: /api/{id}
+    methods: [ PATCH ]
+    defaults: { _controller: AppBundle:Rest:update }
+
+app_rest_delete:
+    path: /api/{id}
+    methods: [ DELETE ]
+    defaults: { _controller: AppBundle:Rest:delete }
+
+app_rest_list:
+    path: /api
+    methods: [ GET ]
+    defaults: { _controller: AppBundle:Rest:retrieve }
+
+
+app_security_login:
+    path: /login
+    defaults: { _controller: AppBundle:Security:login }
+
+app_security_login_check:
+    path: /login_check
+    defaults: { _controller: AppBundle:Security:loginCheck }
+
+app_security_logout:
     path: /logout
+

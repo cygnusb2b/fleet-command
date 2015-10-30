@@ -33,9 +33,9 @@ security:
             # http://symfony.com/doc/current/cookbook/security/form_login_setup.html
             # http_basic: ~
             form_login:
-                login_path: /sign-in
+                login_path: /login
                 check_path: /login_check
             logout:
                 path:   /logout
                 target: /
-                invalidate_session: true
+                invalidate_session: false

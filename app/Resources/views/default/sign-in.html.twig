@@ -12,7 +12,7 @@
                 <p class="text-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</p>
             {% endif %}
 
-            <form style="width: 400px; float: right;" method="post" action="{{ path('login_check') }}">
+            <form style="width: 400px; float: right;" method="post" action="{{ path('app_security_login_check') }}">
                 <div class="well">
                     <div class="form-group">
                         <label for="username">Username:</label>
