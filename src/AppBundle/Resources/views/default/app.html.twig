@@ -1,0 +1,24 @@
+{% extends '@AppBundle/Resources/views/base.html.twig' %}
+{% block title %}To Do Application{% endblock %}
+
+{% block stylesheets %}
+    {% stylesheets
+    '@AppBundle/Resources/todo/dist/assets/vendor.css' filter='cssrewrite'
+    '@AppBundle/Resources/todo/dist/assets/todo.css' filter='cssrewrite'
+    %}
+    <link rel="stylesheet" href="{{ asset_url }}" />
+    {% endstylesheets %}
+{% endblock %}
+
+{% block javascripts %}
+    {% javascripts
+    '@AppBundle/Resources/todo/dist/assets/vendor.js'
+    '@AppBundle/Resources/todo/dist/assets/todo.js'
+    %}
+    <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+{% endblock %}
+
+{% block body %}
+    <div id="application"></div>
+{% endblock %}

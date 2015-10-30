@@ -18,14 +18,12 @@ class SecurityController extends Controller
         $lastUsername = $authenticationUtils->getLastUsername();
 
         return $this->render(
-            'default/sign-in.html.twig',
+            '@AppBundle/Resources/views/default/sign-in.html.twig',
             array(
                 'last_username' => $lastUsername,
                 'error'         => $error,
             )
         );
-
-        return $this->render('default/sign-in.html.twig');
     }
 
     public function loginCheckAction()

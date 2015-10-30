@@ -1,4 +1,4 @@
-{% extends 'base.html.twig' %}
+{% extends '@AppBundle/Resources/views/base.html.twig' %}
 {% block title %}Home{% endblock %}
 
 {% block body %}
