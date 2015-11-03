@@ -40,3 +40,6 @@ app_security_login_check:
 app_security_logout:
     path: /logout
 
+app_default_fork:
+    path: /fork
+    defaults: { _controller: AppBundle:Default:fork }

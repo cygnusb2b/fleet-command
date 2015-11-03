@@ -5,6 +5,7 @@ namespace AppBundle\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\JsonResponse;
 
 /**
  * Default Controller.
@@ -29,5 +30,17 @@ class DefaultController extends Controller
             return $this->render('@AppBundle/Resources/views/default/app.html.twig');
         }
         return $this->render('@AppBundle/Resources/views/default/index.html.twig');
+    }
+
+    /**
+     * Handles requests to create new developer environment via GH fork web hook.
+     *
+     * @param   Request     $request
+     */
+    public function forkAction(Request $request)
+    {
+        $username = json_decode($request->getContent(), false)->forkee->owner->login;
+        exec('sudo createuser '. escapeshellarg($username));
+        return new JsonResponse([], 200);
     }
 }
