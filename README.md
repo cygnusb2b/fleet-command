@@ -26,7 +26,11 @@ npm install
 bower install
 ember build
 ```
-- Rebuild JS/CSS using assetic: `php app/console assetic:dump`
+- Rebuild JS/CSS using assetic:
+```
+cd ../../../../
+php app/console assetic:dump
+```
   
 ## Scenarios
 - There are several issues with this repository. You can find a list of issues [here](https://github.com/cygnusb2b/fleet-command/issues)
