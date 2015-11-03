@@ -1,3 +1,42 @@
-app:
-    resource: "@AppBundle/Controller/"
-    type:     annotation
+app_default_index:
+    path: /
+    defaults: { _controller: AppBundle:Default:index }
+
+
+app_todo_create:
+    path: /api/todos
+    methods: [ POST ]
+    defaults: { _controller: AppBundle:ToDo:create }
+
+app_todo_retrieve:
+    path: /api/todos/{id}
+    methods: [ GET ]
+    defaults: { _controller: AppBundle:ToDo:retrieve }
+
+app_todo_update:
+    path: /api/todos/{id}
+    methods: [ PUT ]
+    defaults: { _controller: AppBundle:ToDo:update }
+
+app_todo_delete:
+    path: /api/todos/{id}
+    methods: [ DELETE ]
+    defaults: { _controller: AppBundle:ToDo:delete }
+
+app_todo_list:
+    path: /api/todos
+    methods: [ GET ]
+    defaults: { _controller: AppBundle:ToDo:list }
+
+
+app_security_login:
+    path: /login
+    defaults: { _controller: AppBundle:Security:logon }
+
+app_security_login_check:
+    path: /login_check
+    defaults: { _controller: AppBundle:Security:loginCheck }
+
+app_security_logout:
+    path: /logout
+

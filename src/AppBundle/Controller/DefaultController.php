@@ -9,13 +9,17 @@ use Symfony\Component\HttpFoundation\Request;
 class DefaultController extends Controller
 {
     /**
-     * @Route("/", name="homepage")
+     * Default application route.
+     *
+     * @param   Request     $request
      */
     public function indexAction(Request $request)
     {
-        // replace this example code with whatever you need
-        return $this->render('default/index.html.twig', array(
-            'base_dir' => realpath($this->container->getParameter('kernel.root_dir').'/..'),
-        ));
+        $session = $request->getSession();
+        $session->start();
+        if ($this->isGranted('ROLE_USER')) {
+            return $this->render('@AppBundle/Resources/views/default/app.html.twig');
+        }
+        return $this->render('@AppBundle/Resources/views/default/index.html.twig');
     }
 }

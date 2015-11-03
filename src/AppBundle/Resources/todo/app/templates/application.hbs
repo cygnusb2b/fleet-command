@@ -1,0 +1,43 @@
+
+
+<div class="row">
+    <div class="col-sm-12">
+        <h1>Commander's Log</h1>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-12">
+        <div class="well">
+            <ul class="todos list-group">
+                {{#each model as |todo|}}
+                <li class="todo list-group-item">
+                    <span {{action 'toggle' todo}} class="todo-check" style="cursor:pointer;">
+                        {{#if todo.complete}}
+                        <i class="fa fa-check-square-o"></i>
+                        {{else}}
+                        <i class="fa fa-square-o"></i>
+                        {{/if}}
+                    </span>
+                    <div class="todo-body">
+                        <h2>{{todo.name}}</h2>
+                        <p>{{todo.description}}</p>
+                    </div>
+                    <div class="clearfix"></div>
+                </li>
+                {{else}}
+                <li class="todo none list-group-item text-muted">
+                    <h2>No logs exist</h2>
+                </li>
+                {{/each}}
+                <li class="todo new list-group-item">
+                    <form {{action 'create' on='submit'}}>
+                        {{input value=name class='form-control' placeholder='Log Title'}}
+                        {{textarea value=description class='form-control' placeholder='Stardate 7014.3...'}}
+                        <button class="btn btn-create btn-primary btn-block" type="submit">Add Mission Log</button>
+                    </form>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

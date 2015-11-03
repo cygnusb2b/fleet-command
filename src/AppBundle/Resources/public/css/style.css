@@ -1,0 +1,79 @@
+body {
+    background: url('https://s3.amazonaws.com/cygnusimages/fleet-commander/background.jpg');
+    background-attachment: fixed;
+}
+
+.navbar-brand>img {
+    width: 20px;
+    display: inline;
+}
+
+.navbar-text a {
+    color: #F0F0F0;
+}
+
+#page-container {
+    background: rgba(255,255,255,0.8);
+    margin-top: 50px;
+}
+
+.jumbotron img.pull-left {
+    margin-right: 80px;
+}
+
+.jumbotron h1 {
+    font-size: 35px;
+}
+
+.row.enlist h2 {
+    text-transform: uppercase;
+    font-size: 1.8em;
+    text-align: center;
+}
+
+.row.enlist img {
+    max-width: 100%;
+}
+.row.enlist .col-md-4 {
+    transition: all 1s;
+    opacity: 0.75
+}
+
+.row.enlist .col-md-4:hover {
+    opacity: 1;
+}
+
+.todo-body {
+    width: calc(100% - 50px);
+    float: left;
+    padding-left: 20px;
+}
+
+.todo-check {
+    width: 50px;
+    height: 60px;
+    float: left;
+    text-align: center;
+}
+
+.todo-check i {
+    font-size: 30px;
+    margin: 22px auto 8px auto;
+}
+
+a.todo-remove {
+    float: right;
+}
+
+
+
+
+@media (min-width: 768px) {
+    #wrapper { width: 80%; margin: 2em auto; }
+    #icon-book { display: inline-block; }
+    #status a, #next a { display: block; }
+
+    @-webkit-keyframes fade-in { 0% { opacity: 0; } 100% { opacity: 1; } }
+    @keyframes fade-in { 0% { opacity: 0; } 100% { opacity: 1; } }
+    .sf-toolbar { opacity: 0; -webkit-animation: fade-in 1s .2s forwards; animation: fade-in 1s .2s forwards;}
+}

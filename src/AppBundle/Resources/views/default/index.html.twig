@@ -1,0 +1,63 @@
+{% extends '@AppBundle/Resources/views/base.html.twig' %}
+{% block title %}Home{% endblock %}
+
+{% block body %}
+
+    <div class="jumbotron">
+        <div class="container">
+            <img src="https://s3.amazonaws.com/cygnusimages/fleet-commander/logo.png" class="pull-left">
+            <h1>Greetings, Commander!</h1>
+            <p>Welcome to Fleet Command! Your expertise is needed to help protect the galaxy -- Will you answer the call?</p>
+            <p>Join the Officers Corps today to bring the fight to the expanse. Explore, flight, or flight; you're in command now.</p>
+            <div style="clear: both">
+                <p><a class="btn btn-primary btn-lg btn-block" href="{{ path('app_security_login') }}" role="button">Join the Fight</a></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="row enlist">
+        <div class="col-md-4">
+            <h2>Protect the colonists</h2>
+            <div class="thumbnail"><img src="https://s3.amazonaws.com/cygnusimages/fleet-commander/colony.jpg"></div>
+            <p>Use your martial expertise to defend and protect the border colonies!</p>
+        </div>
+        <div class="col-md-4">
+            <h2>Serve the federation</h2>
+            <div class="thumbnail"><img src="https://s3.amazonaws.com/cygnusimages/fleet-commander/diplomat.jpg"></div>
+            <p>Be an ambassador to all the denizens of our galaxy and beyond!</p>
+        </div>
+        <div class="col-md-4">
+            <h2>Explore the universe</h2>
+            <div class="thumbnail"><img src="https://s3.amazonaws.com/cygnusimages/fleet-commander/explore.jpg"></div>
+            <p>Space is vast. Join the Surveyor Corps to continue our finest mission -- exploration.</p>
+        </div>
+    </div>
+
+    <hr />
+
+    <div class="row">
+        <div class="col-md-12">
+            <h3>Scenario #1</h3>
+            <p>The login link on this page does not work. Determine why this is the case, and resolve it.
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="row"><div class="col-md-12"><p class="text-muted">
+        To be the first to enter the cosmos, to engage, single-handed, in an unprecedented duel with nature—could one dream of anything more? When I orbited the Earth in a spaceship, I saw for the first time how beautiful our planet is. Mankind, let us preserve and increase this beauty, and not destroy it! What was most significant about the lunar voyage was not that man set foot on the Moon but that they set eye on the earth. Here men from the planet Earth first set foot upon the Moon. July 1969 AD. We came in peace for all mankind. Science has not yet mastered prophecy. We predict too much for the next year and yet far too little for the next 10.
+    </p></div></div>
+
+    <div class="row"><div class="col-md-12"><p class="text-muted">
+        Many say exploration is part of our destiny, but it’s actually our duty to future generations and their quest to ensure the survival of the human species. Dinosaurs are extinct today because they lacked opposable thumbs and the brainpower to build a space program. The dreams of yesterday are the hopes of today and the reality of tomorrow. I don't know what you could say about a day in which you have seen four beautiful sunsets. Curious that we spend more time congratulating people who have succeeded than encouraging people who have not.
+    </p></div></div>
+
+    <div class="row"><div class="col-md-12"><p class="text-muted">
+        Houston, Tranquillity Base here. The Eagle has landed. Houston, Tranquillity Base here. The Eagle has landed. The dreams of yesterday are the hopes of today and the reality of tomorrow. Spaceflights cannot be stopped. This is not the work of any one man or even a group of men. It is a historical process which mankind is carrying out in accordance with the natural laws of human development. We want to explore. We’re curious people. Look back over history, people have put their lives at stake to go out and explore … We believe in what we’re doing. Now it’s time to go.
+    </p></div></div>
+
+    <div class="row"><div class="col-md-12"><p class="text-muted">
+        As we got further and further away, it [the Earth] diminished in size. Finally it shrank to the size of a marble, the most beautiful you can imagine. That beautiful, warm, living object looked so fragile, so delicate, that if you touched it with a finger it would crumble and fall apart. Seeing this has to change a man. Science has not yet mastered prophecy. We predict too much for the next year and yet far too little for the next 10. Houston, Tranquillity Base here. The Eagle has landed. NASA is not about the ‘Adventure of Human Space Exploration’…We won’t be doing it just to get out there in space – we’ll be doing it because the things we learn out there will be making life better for a lot of people who won’t be able to go. We want to explore. We’re curious people. Look back over history, people have put their lives at stake to go out and explore … We believe in what we’re doing. Now it’s time to go.
+    </p></div></div>
+
+{% endblock %}
