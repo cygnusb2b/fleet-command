@@ -3,7 +3,7 @@ Fleet Command
 
 Fleet Command is a mission log application for spaceship commanders. This project is to be used as a test of skills for debugging and developing within the Symfony PHP and Ember JS frameworks.
 
-Please review the [wiki](/cygnusb2b/fleet-command/wiki) for instructions on connecting to or setting up an environment to work through the scenarios in this repository.
+Please review the [wiki](https://github.com/cygnusb2b/fleet-command/wiki) for instructions on connecting to or setting up an environment to work through the scenarios in this repository.
   
 ## Scenarios
 There are several issues with this repository. Each of them are listed below. For each issue, determine the root cause and commit a fix to your fork of this repository.
