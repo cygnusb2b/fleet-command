@@ -34,7 +34,7 @@ php app/console assetic:dump
 ```
   
 ## Scenarios
-- There are several issues with this repository. You can find a list of issues [here](https://github.com/cygnusb2b/fleet-command/issues)
+- There are several issues with this repository. You can find a list of issues [here](https://github.com/cygnusb2b/fleet-command/issues?q=is%3Aissue+is%3Aopen+sort%3Acreated-asc)
 - For each issue, determine the root cause and commit a fix to your fork of this repository.
 
 ## Submission
