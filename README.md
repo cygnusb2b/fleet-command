@@ -29,6 +29,7 @@ ember build
 - Rebuild JS/CSS using assetic:
 ```
 cd ../../../../
+php app/console cache:clear
 php app/console assetic:dump
 ```
   
