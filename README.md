@@ -14,4 +14,4 @@ There are several issues with this repository. Each of them are listed below. Fo
 4. **Javascript error when creating a log**: When I try to create a new mission log, a Javascript error shows up and my log isn't saved.
 
 ## Submission
-Once you have completed all scenarios, submit a new PR to this repository with your changes. You can easily submit a PR by opening your fork on Github and clicking the green button on the left. Fill out the PR with a title and a summary of the changes you made.
+Once you have completed all scenarios, contact developer@southcomm.com and include your Github username. In order to ensure a fair testing experience for all users, please **do not** push any of your changes to your fork -- we will review the git history and your environment on the server.
