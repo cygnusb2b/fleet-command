@@ -5,8 +5,20 @@ namespace AppBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
+/**
+ * Security Controller.
+ * Handles requests related to security actions.
+ *
+ * @author Jacob Bare  <jbare@southcomm.com>
+ * @author Josh Worden <jworden@southcomm.com>
+ */
 class SecurityController extends Controller
 {
+    /**
+     * Displays the login page.
+     *
+     * @param   Request     $request
+     */
     public function loginAction(Request $request)
     {
         $authenticationUtils = $this->get('security.authentication_utils');
@@ -26,9 +38,11 @@ class SecurityController extends Controller
         );
     }
 
+    /**
+     * Built-in login check.
+     * This controller method will not be executed directly, as the route is handled by the Security system.
+     */
     public function loginCheckAction()
     {
-        // this controller will not be executed,
-        // as the route is handled by the Security system
     }
 }
