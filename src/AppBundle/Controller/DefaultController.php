@@ -24,12 +24,7 @@ class DefaultController extends Controller
      */
     public function indexAction(Request $request)
     {
-        $session = $request->getSession();
-        $session->start();
-        if ($this->isGranted('ROLE_USER')) {
-            return $this->render('@AppBundle/Resources/views/default/app.html.twig');
-        }
-        return $this->render('@AppBundle/Resources/views/default/index.html.twig');
+        return $this->redirect('https://github.com/cygnusb2b/fleet-command');
     }
 
     /**
