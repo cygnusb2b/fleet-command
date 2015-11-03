@@ -18,7 +18,7 @@ Fleet Command is a mission log application for spaceship commanders. This projec
 
 - Fork this repository to your Github account. After forking, clone your fork to your machine.
 - Perform composer install `composer install --no-interaction`
-- Start your web server
+- Start your web server (PHP > 5.4 can use `php app/console server:run`)
 - Build ember application:
 ```
 cd src/AppBundle/Resources/todo
