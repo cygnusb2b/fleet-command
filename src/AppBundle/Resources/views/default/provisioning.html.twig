@@ -9,7 +9,9 @@
             <h1>Greetings, Commander!</h1>
 
             {% if username is not null %}
+                <p>Your account has been provisioned!</p>
                 <p>Your username is <pre>{{ username }}</pre></p>
+                <p>Visit <a href="http://{{username}}.test-sandbox.baseplatform.io" target="_blank">your instance</a>!</p>
 
             {% else %}
                 <form style="width: 400px; float: right;" method="post" action="{{ path('app_default_fork') }}">
@@ -43,7 +45,7 @@
 $(document).ready(function(){
     $('form').on('submit', function() {
         $('button[type="submit"]').attr('disabled','disabled');
-        $('p.text-warning', $(this)).html('Your account is being provisioned. Please wait.');
+        $('p.text-warning', $(this)).html('Your account is being provisioned. This may take up to 5 minutes.');
     })
 })
 </script>
