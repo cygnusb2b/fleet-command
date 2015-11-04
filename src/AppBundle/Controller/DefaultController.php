@@ -46,13 +46,20 @@ class DefaultController extends Controller
      */
     public function forkAction(Request $request)
     {
-        if (null !== $this->getUsername($request) || !$request->request->has('username')) {
-            // Already set username.
+        if (null !== $this->getUsername($request)) {
+            // Already set username -- do not reprovision.
+            return $this->redirectToRoute('app_default_index');
+        }
+
+        // Required fields
+        if (!$request->request->has('username') || !$request->request->has('email') || !$request->request->has('name')) {
             return $this->redirectToRoute('app_default_index');
         }
 
         $username = $request->request->get('username');
-        exec('sudo createuser '. escapeshellarg($username));
+        $email = $request->request->get('email');
+        $name = $request->request->get('name');
+        exec(sprintf('sudo createuser %s %s %s', escapeshellarg($username), escapeshellarg($email), escapeshellarg($name)));
 
         $cookie = new Cookie('username', $username);
         $response = new RedirectResponse($this->generateUrl('app_default_index'));

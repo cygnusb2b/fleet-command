@@ -16,8 +16,17 @@
                     <div class="well">
                         <div class="form-group">
                             <label for="username">Username:</label>
-                            <input type="text" id="username" name="username" class="form-control" placeholder="Github.com Username" />
+                            <input type="text" id="username" name="username" class="form-control" placeholder="Github.com Username" autofocus />
                         </div>
+                        <div class="form-group">
+                            <label for="email">Email:</label>
+                            <input type="email" id="email" name="email" class="form-control" placeholder="Email address (for git)" />
+                        </div>
+                        <div class="form-group">
+                            <label for="name">Name:</label>
+                            <input type="text" id="name" name="name" class="form-control" placeholder="Name (for git)" />
+                        </div>
+                        <p class="text-warning text-center">All fields are required.</p>
                     </div>
                     <button type="submit" class="btn btn-block btn-success">Sign In</button>
                 </form>
