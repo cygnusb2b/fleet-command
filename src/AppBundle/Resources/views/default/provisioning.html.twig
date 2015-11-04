@@ -37,3 +37,14 @@
     </div>
 
 {% endblock %}
+
+{% block javascripts %}
+<script type="text/javascript">
+$(document).ready(function(){
+    $('form').on('submit', function() {
+        $('button[type="submit"]').attr('disabled','disabled');
+        $('p.text-warning', $(this)).html('Your account is being provisioned. Please wait.');
+    })
+})
+</script>
+{% endblock %}
