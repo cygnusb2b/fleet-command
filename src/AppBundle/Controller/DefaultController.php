@@ -52,7 +52,7 @@ class DefaultController extends Controller
         }
 
         // Required fields
-        if (!$request->request->has('username') || !$request->request->has('email') || !$request->request->has('name')) {
+        if (!$request->request->get('username') || !$request->request->get('email') || !$request->request->get('name')) {
             return $this->redirectToRoute('app_default_index');
         }
 
