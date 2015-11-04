@@ -5,7 +5,8 @@ namespace AppBundle\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\RedirectResponse;
+use Symfony\Component\HttpFoundation\Cookie;
 
 /**
  * Default Controller.
@@ -24,7 +25,18 @@ class DefaultController extends Controller
      */
     public function indexAction(Request $request)
     {
-        return $this->redirect('https://github.com/cygnusb2b/fleet-command');
+        return $this->render(
+            '@AppBundle/Resources/views/default/provisioning.html.twig',
+            ['username' => $this->getUsername($request)]
+        );
+    }
+
+    private function getUsername(Request $request)
+    {
+        $cookies = $request->cookies;
+        if ($cookies->has('username') && null !== $username = $cookies->get('username')) {
+            return $username;
+        }
     }
 
     /**
@@ -34,8 +46,17 @@ class DefaultController extends Controller
      */
     public function forkAction(Request $request)
     {
-        $username = json_decode($request->getContent(), false)->forkee->owner->login;
+        if (null !== $this->getUsername($request) || !$request->request->has('username')) {
+            // Already set username.
+            return $this->redirectToRoute('app_default_index');
+        }
+
+        $username = $request->request->get('username');
         exec('sudo createuser '. escapeshellarg($username));
-        return new JsonResponse([], 200);
+
+        $cookie = new Cookie('username', $username);
+        $response = new RedirectResponse($this->generateUrl('app_default_index'));
+        $response->headers->setCookie($cookie);
+        return $response;
     }
 }

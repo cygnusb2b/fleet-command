@@ -1,0 +1,30 @@
+{% extends '@AppBundle/Resources/views/base.html.twig' %}
+{% block title %}Home{% endblock %}
+
+{% block body %}
+
+    <div class="jumbotron">
+        <div class="container">
+            <img src="https://s3.amazonaws.com/cygnusimages/fleet-commander/logo.png" class="pull-left">
+            <h1>Greetings, Commander!</h1>
+
+            {% if username is not null %}
+                <p>Your username is <pre>{{ username }}</pre></p>
+
+            {% else %}
+                <form style="width: 400px; float: right;" method="post" action="{{ path('app_default_fork') }}">
+                    <div class="well">
+                        <div class="form-group">
+                            <label for="username">Username:</label>
+                            <input type="text" id="username" name="username" class="form-control" placeholder="Github.com Username" />
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-block btn-success">Sign In</button>
+                </form>
+            {% endif %}
+
+            <p><br />Visit the <a href="https://github.com/cygnusb2b/fleet-command">project</a> or <a href="https://github.com/cygnusb2b/fleet-command/wiki">wiki</a> for more information.</p>
+        </div>
+    </div>
+
+{% endblock %}
