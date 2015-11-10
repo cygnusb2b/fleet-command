@@ -11,7 +11,7 @@ namespace AppBundle\Services;
  * @author Jacob Bare  <jbare@southcomm.com>
  * @author Josh Worden <jworden@southcomm.com>
  */
-class Database
+class SessionStorage implements StorageEngine
 {
     /**
      * The Symfony session wrapper object.
@@ -52,10 +52,7 @@ class Database
     }
 
     /**
-     * Creates a new ToDo record and persists it to the "database."
-     *
-     * @param   array   $data   The todo record payload.
-     * @return  array
+     * {@inheritdoc}
      */
     public function create(array $data)
     {
@@ -67,10 +64,7 @@ class Database
     }
 
     /**
-     * Retrieves a single ToDo record from the "database."
-     *
-     * @param   string  $id     The record identifier.
-     * @return  array
+     * {@inheritdoc}
      */
     public function retrieve($id)
     {
@@ -79,11 +73,7 @@ class Database
     }
 
     /**
-     * Updates a single ToDo record in the "database" with the provided data.
-     *
-     * @param   string  $id     The record identifier.
-     * @param   array   $data   The record data to apply.
-     * @return  array
+     * {@inheritdoc}
      */
     public function update($id, array $data = [])
     {
@@ -99,10 +89,7 @@ class Database
     }
 
     /**
-     * Deletes a single ToDo record from the "database."
-     *
-     * @param   string  $id     The record identifier.
-     * @return  null
+     * {@inheritdoc}
      */
     public function delete($id)
     {

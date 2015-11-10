@@ -1,4 +1,8 @@
 services:
-   app_bundle_database:
-       class: AppBundle\Services\Database
+    app_bundle_storage_session:
+       class: AppBundle\Services\SessionStorage
        arguments: [ @session ]
+
+    app_bundle_storage_mongodb:
+       class: AppBundle\Services\MongoDBStorage
+       arguments: [ %db_name% ]
