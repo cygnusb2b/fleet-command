@@ -17,13 +17,6 @@ use MongoId;
 class MongoDBStorage implements StorageEngine
 {
     /**
-     * The MongoDB Connection
-     *
-     * @var Connection
-     */
-    protected $connection;
-
-    /**
      * The MongoDB Collection
      *
      * @var Collection
@@ -37,31 +30,8 @@ class MongoDBStorage implements StorageEngine
      */
     public function __construct($dbName)
     {
-        $this->connection = $this->initConnection();
-        $this->collection = $this->connection->selectCollection($dbName, 'Todo');
-    }
-
-    /**
-     * Initializes the MongoDB connection.
-     * For lack of the ODM and symfony configuration, hardcoded to localhost.
-     *
-     * @return Connection
-     */
-    private function initConnection()
-    {
-        return new Connection('mongodb://localhost:27017');
-    }
-
-    /**
-     * Selects and returns the specified database and collection
-     *
-     * @param   string $collection
-     * @param   string $database
-     * @return  Collection
-     */
-    private function selectCollection($collection = 'Todo', $database = 'test_sandbox')
-    {
-        return $this->connection->selectCollection($database, $collection);
+        $connection = new Connection('mongodb://localhost:27017');
+        $this->connection = $connection->selectCollection($dbName, 'Todo');
     }
 
     /**
@@ -78,17 +48,17 @@ class MongoDBStorage implements StorageEngine
             }
             if ($key === '_id') {
                 unset($response[$key]);
-                $response['id'] = $this->convertId($value);
+                $response['id'] = (string) $value;
             }
         }
         return $response;
     }
 
     /**
-     * Returns an array containing the formatted MongoId
+     * Returns the MongoId for the supplied id value.
      *
-     * @param  mixed $id
-     * @return array        An array containing the MongoId
+     * @param  mixed    $id
+     * @return MongoId
      */
     private function convertId($id)
     {
@@ -111,6 +81,6 @@ class MongoDBStorage implements StorageEngine
      */
     public function retrieve($id)
     {
-        return $this->formatResponse($this->selectCollection()->findOne(['_id' => $this->convertId($id)]));
+        return $this->formatResponse($this->collection->findOne(['_id' => $this->convertId($id)]));
     }
 }
