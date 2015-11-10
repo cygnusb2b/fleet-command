@@ -23,7 +23,7 @@ class ToDoController extends Controller
      */
     public function listAction(Request $request)
     {
-        $records = $this->get('app_bundle_database')->all();
+        $records = $this->get('app_bundle_storage_session')->all();
         return new JsonResponse(['todos' => $records], 200);
     }
 
@@ -36,7 +36,7 @@ class ToDoController extends Controller
     public function createAction(Request $request)
     {
         $payload = json_decode($request->getContent())['todo'];
-        $record = $this->get('app_bundle_database')->create($payload);
+        $record = $this->get('app_bundle_storage_session')->create($payload);
         return new JsonResponse(['todo' => $record], 201);
     }
 
@@ -48,7 +48,7 @@ class ToDoController extends Controller
      */
     public function retrieveAction($id)
     {
-        $record = $this->get('app_bundle_database')->retrieve($id);
+        $record = $this->get('app_bundle_storage_session')->retrieve($id);
         return new JsonResponse(['todo' => $record], 200);
     }
 
@@ -62,7 +62,7 @@ class ToDoController extends Controller
     public function updateAction($id, Request $request)
     {
         $payload = json_decode($request->getContent(), true)['todo'];
-        $record = $this->get('app_bundle_database')->update($id, $payload);
+        $record = $this->get('app_bundle_storage_session')->update($id, $payload);
         return new JsonResponse(['todo' => $record], 200);
     }
 

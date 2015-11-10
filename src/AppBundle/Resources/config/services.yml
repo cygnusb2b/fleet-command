@@ -5,4 +5,4 @@ services:
 
     app_bundle_storage_mongodb:
        class: AppBundle\Services\MongoDBStorage
-       arguments: [ %db_name% ]
+       arguments: [ %database% ]
