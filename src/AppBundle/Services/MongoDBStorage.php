@@ -31,7 +31,7 @@ class MongoDBStorage implements StorageEngine
     public function __construct($dbName)
     {
         $connection = new Connection('mongodb://localhost:27017');
-        $this->connection = $connection->selectCollection($dbName, 'Todo');
+        $this->collection = $connection->selectCollection($dbName, 'Todo');
     }
 
     /**
