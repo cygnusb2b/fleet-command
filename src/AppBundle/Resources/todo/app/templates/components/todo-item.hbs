@@ -1,0 +1,14 @@
+<li class="todo list-group-item">
+    <span {{action 'toggle' todo}} class="todo-check" style="cursor:pointer;">
+        {{#if todo.complete}}
+        <i class="fa fa-check-square-o"></i>
+        {{else}}
+        <i class="fa fa-square-o"></i>
+        {{/if}}
+    </span>
+    <div class="todo-body">
+        <h2>{{todo.name}}</h2>
+        <p>{{todo.description}}</p>
+    </div>
+    <div class="clearfix"></div>
+</li>

@@ -2,7 +2,6 @@ app_default_index:
     path: /
     defaults: { _controller: AppBundle:Default:index }
 
-
 app_todo_create:
     path: /api/todos
     methods: [ POST ]
@@ -28,7 +27,6 @@ app_todo_list:
     methods: [ GET ]
     defaults: { _controller: AppBundle:ToDo:list }
 
-
 app_security_login:
     path: /login
     defaults: { _controller: AppBundle:Security:logon }
@@ -39,4 +37,11 @@ app_security_login_check:
 
 app_security_logout:
     path: /logout
+
+app_todo_default:
+    path:  /{uri}
+    defaults: { _controller: AppBundle:Default:index, uri: '' }
+    requirements:
+        uri: .*
+
 

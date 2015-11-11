@@ -1,0 +1,7 @@
+{{#each model as |todo|}}
+    {{todo-item todo=todo}}
+{{else}}
+<li class="todo none list-group-item text-muted">
+    <h2>No logs exist</h2>
+</li>
+{{/each}}
