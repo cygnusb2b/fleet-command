@@ -1,9 +1,6 @@
 import Ember from 'ember';
 
-export default Ember.Route.extend({
-    model: function() {
-        return this.store.findAll('todo');
-    },
+export default Ember.Component.extend({
     actions: {
         toggle: function(todo) {
             todo.set('complete', !todo.get('complete'));
