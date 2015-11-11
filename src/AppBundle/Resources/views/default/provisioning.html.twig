@@ -11,7 +11,7 @@
             {% if username is not null %}
                 <p>Your account has been provisioned!</p>
                 <p>Your username is <pre>{{ username }}</pre></p>
-                <p>Visit <a href="http://{{username}}.test-sandbox.baseplatform.io" target="_blank">your instance <i class="fa fa-external-link"></i></a>!</p>
+                <p>Visit <a href="http://{{username}}.test-sandbox.baseplatform.io" target="_blank">your instance <i class="fa fa-external-link"></i></a></p>
 
             {% else %}
                 <form style="width: 400px; float: right;" method="post" action="{{ path('app_default_fork') }}">
