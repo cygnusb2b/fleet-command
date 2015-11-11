@@ -11,7 +11,7 @@
             {% if username is not null %}
                 <p>Your account has been provisioned!</p>
                 <p>Your username is <pre>{{ username }}</pre></p>
-                <p>Visit <a href="http://{{username}}.test-sandbox.baseplatform.io" target="_blank">your instance</a>!</p>
+                <p>Visit <a href="http://{{username}}.test-sandbox.baseplatform.io" target="_blank">your instance <i class="fa fa-external-link"></i></a>!</p>
 
             {% else %}
                 <form style="width: 400px; float: right;" method="post" action="{{ path('app_default_fork') }}">
@@ -34,7 +34,7 @@
                 </form>
             {% endif %}
 
-            <p><br />Visit the <a href="https://github.com/cygnusb2b/fleet-command">project</a> or <a href="https://github.com/cygnusb2b/fleet-command/wiki">wiki</a> for more information.</p>
+            <p><br />Visit the <a href="https://github.com/cygnusb2b/fleet-command" target="_blank">project <i class="fa fa-external-link"></i></a> or <a href="https://github.com/cygnusb2b/fleet-command/wiki" target="_blank">wiki <i class="fa fa-external-link"></i></a> for more information.</p>
         </div>
     </div>
 
